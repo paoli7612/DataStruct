@@ -1,3 +1,5 @@
 bin/*.o*
 bin/deps
 .vscode
+doc/html
+doc/latex
