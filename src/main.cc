@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "../include/liste.h"
+#include "../include/list.h"
 
 using namespace std;
 
