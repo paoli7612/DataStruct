@@ -4,7 +4,7 @@ OUTFILE=bin/main.out
 INCLUDE=include/
 DEPENDENCIES=bin/deps
 
-CXXFLAGS += -I$(INCLUDE)
+CXXFLAGS += -I $(INCLUDE)
 CXXFLAGS += -o $(OUTFILE)
 
 _main: depend build link
@@ -25,6 +25,6 @@ run: _main
 
 .PHONY: clean cleanall
 clean:
-	rm bin/*.o
+	rm bin/*.o -f
 cleanall: clean
-	rm bin/
+	rm bin/ -f
