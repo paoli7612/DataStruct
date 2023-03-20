@@ -6,25 +6,18 @@ using namespace std;
 
 int main(int argc, char const *argv[])
 {
+    srand(time(NULL));
     lista_t lista = NULL;
 
-    stampa(lista);
-
-    aggiungi_coda(lista, 1);
-    aggiungi_coda(lista, 2);
-    aggiungi_coda(lista, 3);
-    aggiungi_coda(lista, 4);
-
-    aggiungi_testa(lista, 1);
-    aggiungi_testa(lista, 2);
-    aggiungi_testa(lista, 3);
-    aggiungi_testa(lista, 4);
+    for (int i=0; i<10; i++) {
+        aggiungi_coda(lista, rand()%10);
+    }
 
     stampa(lista);
+
+    if (cerca(lista, 3))
+        cout << "C'è il numero 3" << endl;
 
     cout << endl;
-
-
-    
     return 0;
 }

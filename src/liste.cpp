@@ -9,7 +9,6 @@ void stampa(lista_t lista) {
         std::cout << lista->value << " ";
         stampa(lista->next);
     }
-
 }
 
 node_t *nuovo_nodo(int value) {
@@ -32,4 +31,12 @@ void aggiungi_coda(lista_t &lista, node_t* nodo) {
         lista = nodo;
     else
         aggiungi_coda(lista->next, nodo);
+}
+
+bool cerca(lista_t lista, int value) {
+    if (lista == NULL)
+        return false;
+    if (lista->value == value)
+        return true;
+    return cerca(lista->next, value);
 }

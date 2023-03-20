@@ -10,3 +10,5 @@ void aggiungi_testa(lista_t &lista, int value);
 void aggiungi_coda(lista_t &lista, int value);
 void aggiungi_testa(lista_t &lista, node_t* nodo);
 void aggiungi_coda(lista_t &lista, node_t* nodo);
+
+bool cerca(lista_t lista, int value);
