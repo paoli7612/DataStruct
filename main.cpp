@@ -10,13 +10,14 @@ int main(int argc, char const *argv[])
     lista_t lista = NULL;
 
     for (int i=0; i<10; i++) {
-        aggiungi_coda(lista, rand()%10);
+        aggiungi_coda(lista, rand()%10 + 10);
     }
 
     stampa(lista);
 
-    if (cerca(lista, 3))
-        cout << "C'è il numero 3" << endl;
+    cout << "Il minimo è " << minimo(lista) << endl;
+    cout << "Il massimo è " << massimo(lista) << endl;
+
 
     cout << endl;
     return 0;

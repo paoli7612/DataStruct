@@ -40,3 +40,26 @@ bool cerca(lista_t lista, int value) {
         return true;
     return cerca(lista->next, value);
 }
+
+int minimo(lista_t lista) {
+    if (lista == NULL)
+        throw 1;
+    int min = lista->value;
+    do {
+        if (min > lista->value)
+            min = lista->value;
+        lista = lista->next;
+    } while (lista != NULL);
+    return min;
+}
+int massimo(lista_t lista) {
+    if (lista == NULL)
+        throw 1;
+    int max = lista->value;
+    do {
+        if (max < lista->value)
+            max = lista->value;
+        lista = lista->next;
+    } while (lista != NULL);
+    return max;
+}
