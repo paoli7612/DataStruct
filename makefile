@@ -1,30 +1,11 @@
-SRC=src/*.cc
-OBJ=bin/*.o
-OUTFILE=bin/main.out
-INCLUDE=include/
-DEPENDENCIES=bin/deps
+run: bin/main.out
+	./bin/main.out
 
-CXXFLAGS += -I $(INCLUDE)
-CXXFLAGS += -o $(OUTFILE)
+bin/main.out: bin/liste.o
+	g++ main.cpp bin/liste.o -o bin/main.out
 
-_main: depend build link
-depend:
-	g++ -MM $(SRC) > $(DEPENDENCIES)
-	
-build: $(SRC)
-	g++ -c $^
-	mv *.o bin/
+bin/liste.o:
+	g++ src/liste.cpp -c -o bin/liste.o
 
-link: $(OBJ)
-	g++ $(CXXFLAGS) $^
-
-run: _main
-	./$(OUTFILE)
-
--include $(DEPENDENCIES)
-
-.PHONY: clean cleanall
 clean:
-	rm bin/*.o -f
-cleanall: clean
-	rm bin/ -f
+	rm -rf bin/*
