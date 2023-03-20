@@ -7,11 +7,7 @@ using namespace std;
 int main(int argc, char const *argv[])
 {
     srand(time(NULL));
-    lista_t lista = NULL;
-
-    for (int i=0; i<10; i++) {
-        aggiungi_coda(lista, rand()%10 + 10);
-    }
+    lista_t lista = lista_casuale(100, 1, 10);
 
     stampa(lista);
 

@@ -15,3 +15,5 @@ bool cerca(lista_t lista, int value);
 
 int minimo(lista_t lista);
 int massimo(lista_t lista);
+
+lista_t lista_casuale(int len, int min, int max);

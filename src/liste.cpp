@@ -63,3 +63,10 @@ int massimo(lista_t lista) {
     } while (lista != NULL);
     return max;
 }
+
+lista_t lista_casuale(int len, int min, int max) {
+    lista_t l = NULL;
+    for (int i=0; i<len; i++)
+        aggiungi_testa(l, rand() % (max+min-1) + min);
+    return l;
+}
