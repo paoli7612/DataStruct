@@ -1,5 +1,10 @@
+init:
+	mkdir bin
+	
 run: bin/main.out
 	./bin/main.out
+	rm bin/*.o* 
+
 
 bin/main.out: bin/liste.o
 	g++ main.cpp bin/liste.o -o bin/main.out

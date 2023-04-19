@@ -7,12 +7,12 @@ using namespace std;
 int main(int argc, char const *argv[])
 {
     srand(time(NULL));
-    lista_t lista = lista_casuale(100, 1, 10);
+    list_t list = list_random(100, 1, 10);
 
-    stampa(lista);
+    print(list);
 
-    cout << "Il minimo è " << minimo(lista) << endl;
-    cout << "Il massimo è " << massimo(lista) << endl;
+    cout << "Il minimum è " << minimum(list) << endl;
+    cout << "Il maximum è " << maximum(list) << endl;
 
 
     cout << endl;

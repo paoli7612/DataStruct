@@ -1,72 +1,72 @@
 #include <iostream>
 
-#include "../include/liste.h"
+#include "../include/list.h"
 
-void stampa(lista_t lista) {
-    if (lista == NULL)
+void print(list_t list) {
+    if (list == NULL)
         std::cout << std::endl;
     else {
-        std::cout << lista->value << " ";
-        stampa(lista->next);
+        std::cout << list->value << " ";
+        print(list->next);
     }
 }
 
-node_t *nuovo_nodo(int value) {
-    return new node_t{value, NULL};
+nodeLista_t *nuovo_node(int value) {
+    return new nodeLista_t{value, NULL};
 }
 
-void aggiungi_testa(lista_t &lista, int value) {
-    aggiungi_testa(lista, nuovo_nodo(value));
+void add_head(list_t &list, int value) {
+    add_head(list, nuovo_node(value));
 }
-void aggiungi_coda(lista_t &lista, int value) {
-    aggiungi_coda(lista, nuovo_nodo(value));
+void add_tail(list_t &list, int value) {
+    add_tail(list, nuovo_node(value));
 }
 
-void aggiungi_testa(lista_t &lista, node_t* nodo) {
-    nodo->next = lista;
-    lista = nodo;
+void add_head(list_t &list, nodeLista_t* node) {
+    node->next = list;
+    list = node;
 }
-void aggiungi_coda(lista_t &lista, node_t* nodo) {
-    if (lista == NULL)
-        lista = nodo;
+void add_tail(list_t &list, nodeLista_t* node) {
+    if (list == NULL)
+        list = node;
     else
-        aggiungi_coda(lista->next, nodo);
+        add_tail(list->next, node);
 }
 
-bool cerca(lista_t lista, int value) {
-    if (lista == NULL)
+bool cerca(list_t list, int value) {
+    if (list == NULL)
         return false;
-    if (lista->value == value)
+    if (list->value == value)
         return true;
-    return cerca(lista->next, value);
+    return cerca(list->next, value);
 }
 
-int minimo(lista_t lista) {
-    if (lista == NULL)
+int minimum(list_t list) {
+    if (list == NULL)
         throw 1;
-    int min = lista->value;
+    int min = list->value;
     do {
-        if (min > lista->value)
-            min = lista->value;
-        lista = lista->next;
-    } while (lista != NULL);
+        if (min > list->value)
+            min = list->value;
+        list = list->next;
+    } while (list != NULL);
     return min;
 }
-int massimo(lista_t lista) {
-    if (lista == NULL)
+int maximum(list_t list) {
+    if (list == NULL)
         throw 1;
-    int max = lista->value;
+    int max = list->value;
     do {
-        if (max < lista->value)
-            max = lista->value;
-        lista = lista->next;
-    } while (lista != NULL);
+        if (max < list->value)
+            max = list->value;
+        list = list->next;
+    } while (list != NULL);
     return max;
 }
 
-lista_t lista_casuale(int len, int min, int max) {
-    lista_t l = NULL;
+list_t list_random(int len, int min, int max) {
+    list_t l = NULL;
     for (int i=0; i<len; i++)
-        aggiungi_testa(l, rand() % (max+min-1) + min);
+        add_head(l, rand() % (max+min-1) + min);
     return l;
 }
